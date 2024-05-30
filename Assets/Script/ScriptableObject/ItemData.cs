@@ -8,7 +8,8 @@ public enum ItemType
 {
     Equipable,
     Consumable,
-    Resourcs
+    Resourcs,
+    Special
 }
 
 public enum ConsumableType
@@ -17,11 +18,24 @@ public enum ConsumableType
     Hunger
 }
 
+public enum SpecialType
+{
+    Speed,
+    Size
+}
+
 [Serializable]
 
 public class ItemDataConsumbale
 {
     public ConsumableType type;
+    public float value;
+}
+
+[Serializable]
+public class SpecialItemData
+{
+    public SpecialType type;
     public float value;
 }
 
@@ -41,4 +55,7 @@ public class ItemData : ScriptableObject
 
     [Header("Consumable")]
     public ItemDataConsumbale[] consumables;
+
+    [Header("SpecialEat")]
+    public SpecialItemData[] specialeat;
 }

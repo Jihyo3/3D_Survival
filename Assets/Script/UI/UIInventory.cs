@@ -185,7 +185,7 @@ public class UIInventory : MonoBehaviour
             selectedStartValue.text += selectedItem.consumables[i].value.ToString() + "\n";
         }
 
-        useButton.SetActive(selectedItem.type == ItemType.Consumable);
+        useButton.SetActive(selectedItem.type == ItemType.Consumable || selectedItem.type == ItemType.Special);
         equipButton.SetActive(selectedItem.type == ItemType.Equipable && !slots[index].equipped);
         unequipButton.SetActive(selectedItem.type == ItemType.Equipable && slots[index].equipped);
         dropButton.SetActive(true);
@@ -205,6 +205,24 @@ public class UIInventory : MonoBehaviour
                     case ConsumableType.Hunger:
                         condition.Eat(selectedItem.consumables[i].value);
                         break;
+                }
+            }
+            RemoveSelectedItem();
+        }
+
+        if (selectedItem.type == ItemType.Special)
+        {
+            for (int i = 0; i < selectedItem.specialeat.Length; i++)
+            {
+                switch (selectedItem.specialeat[i].type)
+                {
+                    case SpecialType.Size:
+                        condition.SizeUp(selectedItem.specialeat[i].value);
+                        condition.SizeUpTime(8f);
+                        break;
+                    //case SpecialType.Speed:
+                    //    condition.Eat(selectedItem.specialeat[i].value);
+                    //    break;
                 }
             }
             RemoveSelectedItem();

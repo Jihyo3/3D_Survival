@@ -9,6 +9,7 @@ public class PlayerController : MonoBehaviour
 {
     [Header("Movement")]
     public float moveSpeed;
+    public float curmoveSpeed;
     private Vector2 curMovementInput;
     public float jumpPower;
     public LayerMask groundLayerMask;
@@ -38,6 +39,7 @@ public class PlayerController : MonoBehaviour
     void Start()
     {
         Cursor.lockState = CursorLockMode.Locked;
+        curmoveSpeed = moveSpeed;
     }
 
     void FixedUpdate()
@@ -59,6 +61,11 @@ public class PlayerController : MonoBehaviour
         dir.y = _rigidbody.velocity.y;
 
         _rigidbody.velocity = dir;
+    }
+
+    public void MoveChange(float Value)
+    {
+        curmoveSpeed = moveSpeed + Value;
     }
 
     void CameraLook()

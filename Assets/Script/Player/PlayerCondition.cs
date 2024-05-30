@@ -43,7 +43,29 @@ public class PlayerCondition : MonoBehaviour, IDamagalbe
 
     public void Eat(float amount)
     {
-        hunger.Add(amount);
+        hunger.Add(amount); 
+    }
+
+    public void SpeedUp(float amount)
+    {
+        
+    }
+
+    public void SizeUp(float amount)
+    {
+        transform.localScale = new Vector3(amount, amount, amount);
+    }
+
+    public void SizeUpTime(float time)
+    {
+        StartCoroutine(ResetSize(time));
+    }
+
+    IEnumerator ResetSize(float time)
+    {
+        yield return new WaitForSeconds(time);
+
+        transform.localScale = new Vector3(1, 1, 1);
     }
 
     public void Die()
