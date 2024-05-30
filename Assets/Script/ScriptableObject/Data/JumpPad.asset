@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1289605e22f5dbf418cb68df08d396e2, type: 3}
+  m_Name: JumpPad
+  m_EditorClassIdentifier: 
+  displayName: "\uC810\uD504\uB300"
+  description: "\uB610\uC789\uB610\uC789"
+  type: 0
+  JumpPrefab: {fileID: 5808736361654938084, guid: 7eb9977b33c399f408616dc1230a6bb7, type: 3}
+  JumpForce: 300
